@@ -1,32 +1,39 @@
-import java.util.*;
-public class digitsum {
-    public static void main(String[] args)
-    {
-           Scanner in=new Scanner(System.in);
-           System.out.println("enter the number to find digitsum");
-           int num=in.nextInt();
-           int sum=num;
-           int fin=0;
-           int fin1=0;
-           String temp=Integer.toString(num);
-           int len=temp.length();
-           for(int i=0;i<len;i++)
-           {
-               System.out.println(" "+sum%10);
-               fin=fin+sum%10;
-               if(Integer.toString(fin).length()!=1)
-               {
-                   for(int j=0;j<=Integer.toString(fin).length();j++)
-                   {
-                       System.out.println(" "+fin%10);
-                       fin1=fin1+fin%10;
-                       fin=fin/10;
-                   }
-                   fin=fin1;
-               }
-               sum=sum/10;
-               
-           }
-           System.out.println("sum is: "+fin);
-    }
+package java_lab;
+import java.util.Scanner;
+
+
+public class DigitSum {
+	
+	public void sum(int n)
+	{
+		int temp=n,digsum,rem;
+		while(temp>10)
+		{
+			System.out.println("\nTaking input as "+temp+"\nAfter addition of the digits:");
+			rem=temp%10;
+			temp=temp/10;
+			digsum=rem+temp;
+			if(digsum<10)
+			{
+				System.out.println(digsum+" is less than 10");
+			}
+			else
+			{
+				System.out.println(digsum+" is greater than 10");
+			}
+			temp=digsum;
+		}
+	}
+
+	public static void main(String[] args) {
+		int  number;
+		Scanner scan=new Scanner(System.in);
+		System.out.println("Enter the two digit number:");
+		number=scan.nextInt();
+		
+		DigitSum obj=new DigitSum();
+		obj.sum(number);
+
+	}
+
 }
